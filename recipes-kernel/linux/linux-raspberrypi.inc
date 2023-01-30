@@ -43,7 +43,9 @@ UBOOT_LOADADDRESS =      "0x00008000"
 
 # remove additions made by meta-virtualization
 KERNEL_FEATURES:remove:raspberrypi4-64 = "features/kvm/qemu-kvm-enable.scc"
+KERNEL_FEATURES:remove:raspberrypi3-64 = "features/kvm/qemu-kvm-enable.scc"
 
 # set to knowm state
 KERNEL_FEATURES:append:raspberrypi4-64 = "${@bb.utils.contains("DISTRO_FEATURES", "kvm", " host-kvm.scc", "", d)}"
+KERNEL_FEATURES:append:raspberrypi3-64 = "${@bb.utils.contains("DISTRO_FEATURES", "kvm", " host-kvm.scc", "", d)}"
 
